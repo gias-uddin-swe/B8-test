@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Example</title>
+  </head>
+  <body>
+    <label for="email">Email:</label>
+    <input type="text" id="email" placeholder="Enter your email..." />
+    <br />
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter your password..." />
+    <br />
+    <button id="loginButton">Login</button>
+    <p id="output"></p>
+
+    <script>
+      // Get references to the input elements, the login button, and the output paragraph
+      var emailInput = document.getElementById("email");
+      var passwordInput = document.getElementById("password");
+      var loginButton = document.getElementById("loginButton");
+      var outputElement = document.getElementById("output");
+
+      // Add a click event listener to the login button
+      loginButton.addEventListener("click", function () {
+        // Get the entered email and password
+        var enteredEmail = emailInput.value;
+        var enteredPassword = passwordInput.value;
+
+        // Check if email and password match
+        if (enteredEmail === "gias@gmail.com" && enteredPassword === "gias12") {
+          outputElement.textContent = "Login successful!";
+        } else {
+          outputElement.textContent =
+            "Login failed. Please check your credentials.";
+        }
+      });
+
+      // Add a keydown event listener to both input fields
+      emailInput.addEventListener("keydown", checkEnterKey);
+      passwordInput.addEventListener("keydown", checkEnterKey);
+
+      // Function to check if Enter key is pressed
+      function checkEnterKey(event) {
+        if (event.key === "Enter") {
+          // Get the entered email and password
+          var enteredEmail = emailInput.value;
+          var enteredPassword = passwordInput.value;
+          // Check if email and password match
+          if (
+            enteredEmail === "gias@gmail.com" &&
+            enteredPassword === "gias12"
+          ) {
+            outputElement.textContent = "Login successful!";
+          } else {
+            outputElement.textContent =
+              "Login failed. Please check your credentials.";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
